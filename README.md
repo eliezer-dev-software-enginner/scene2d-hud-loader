@@ -84,12 +84,12 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.eliezer-dev-software-enginner:scene2d-hud-loader:<tag-or-commit>")
+    implementation("com.github.eliezer-dev-software-enginner:scene2d-hud-loader:v1.0.0-beta")
 }
 ```
 
-Replace `<tag-or-commit>` with a release tag (e.g. `v1.0.0`) once one exists, a specific
-commit hash, or `main-SNAPSHOT` to always build the latest commit on `main`. `jitpack.yml`
+`v1.0.0-beta` is the current tagged release. A specific commit hash or `main-SNAPSHOT`
+(always builds the latest commit on `main`) also work in place of the tag. `jitpack.yml`
 in this repo pins the build to JDK 17, matching the toolchain this project targets.
 
 ### Via `mavenLocal()` (for working on this monorepo directly)
