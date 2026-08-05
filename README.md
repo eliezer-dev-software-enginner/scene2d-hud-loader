@@ -72,7 +72,27 @@ if (jogarButton != null) {
 
 ## Installing
 
-Not published anywhere remote — resolve it via `mavenLocal()`:
+### Via JitPack (recommended for consumers outside this monorepo)
+
+Published from [github.com/eliezer-dev-software-enginner/scene2d-hud-loader](https://github.com/eliezer-dev-software-enginner/scene2d-hud-loader).
+JitPack builds straight from a tag/commit/branch — no manual publish step, no `mavenLocal()`:
+
+```kotlin
+// build.gradle.kts, in the module that needs it
+repositories {
+    maven { url = uri("https://jitpack.io") }
+}
+
+dependencies {
+    implementation("com.github.eliezer-dev-software-enginner:scene2d-hud-loader:<tag-or-commit>")
+}
+```
+
+Replace `<tag-or-commit>` with a release tag (e.g. `v1.0.0`) once one exists, a specific
+commit hash, or `main-SNAPSHOT` to always build the latest commit on `main`. `jitpack.yml`
+in this repo pins the build to JDK 17, matching the toolchain this project targets.
+
+### Via `mavenLocal()` (for working on this monorepo directly)
 
 ```kotlin
 // build.gradle.kts, in the module that needs it
@@ -98,4 +118,3 @@ from source, they resolve the already-published jar):
 - libGDX `1.14.2` (pulled in transitively as `api`, since `HudView`'s fields are real
   `com.badlogic.gdx.*` types — no LWJGL/graphics backend needed here, this library only
   parses JSON and builds a Scene2D actor tree, it never touches the GPU itself)
-# scene2d-hud-loader
